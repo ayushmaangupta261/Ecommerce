@@ -1,4 +1,4 @@
-# 🛍️ EasyShop - Modern E-commerce Platform
+# 🛍️ ShopKaro - Modern E-commerce Platform
 
 [![Next.js](https://img.shields.io/badge/Next.js-14.1.0-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
@@ -6,7 +6,7 @@
 [![Redux](https://img.shields.io/badge/Redux-2.2.1-purple?style=flat-square&logo=redux)](https://redux.js.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-EasyShop is a modern, full-stack e-commerce platform built with Next.js 14, TypeScript, and MongoDB. It features a beautiful UI with Tailwind CSS, secure authentication, real-time cart updates, and a seamless shopping experience.
+ShopKaro is a modern, full-stack e-commerce platform built with Next.js 14, TypeScript, and MongoDB. It features a beautiful UI with Tailwind CSS, secure authentication, real-time cart updates, and a seamless shopping experience.
 
 ## ✨ Features
 
@@ -22,7 +22,7 @@ EasyShop is a modern, full-stack e-commerce platform built with Next.js 14, Type
 
 ## 🏗️ Architecture
 
-EasyShop follows a three-tier architecture pattern:
+ShopKaro follows a three-tier architecture pattern:
 
 ### 1. Presentation Tier (Frontend)
 - Next.js React Components
@@ -106,7 +106,7 @@ flowchart TD
 
 ### Docker Setup Guide
 
-This guide will help you run EasyShop using Docker containers. No local Node.js or MongoDB installation required!
+This guide will help you run ShopKaro using Docker containers. No local Node.js or MongoDB installation required!
 
 ### Prerequisites
 
@@ -118,7 +118,7 @@ This guide will help you run EasyShop using Docker containers. No local Node.js 
 1. Create a file named `.env.local` in the root directory with the following content:
 ```env
 # Database Configuration
-MONGODB_URI=mongodb://easyshop-mongodb:27017/easyshop
+MONGODB_URI=mongodb://ShopKaro-mongodb:27017/ShopKaro
 
 # NextAuth Configuration
 NEXTAUTH_URL=http://localhost:3000  # Replace with your EC2 instance's public IP or put localhost:3000
@@ -166,14 +166,14 @@ If you prefer more control, you can run each service manually:
 
 1. Create a Docker network:
 ```bash
-docker network create easyshop-network
+docker network create ShopKaro-network
 ```
 
 2. Start MongoDB:
 ```bash
 docker run -d \
-  --name easyshop-mongodb \
-  --network easyshop-network \
+  --name ShopKaro-mongodb \
+  --network ShopKaro-network \
   -p 27017:27017 \
   -v mongodb_data:/data/db \
   mongo:latest
@@ -181,36 +181,36 @@ docker run -d \
 
 3. Build the main application:
 ```bash
-docker build -t easyshop .
+docker build -t ShopKaro .
 ```
 
 4. Build and run data migration:
 ```bash
 # Build migration image
-docker build -t easyshop-migration -f scripts/Dockerfile.migration .
+docker build -t ShopKaro-migration -f scripts/Dockerfile.migration .
 
 # Run migration
 docker run --rm \
-  --network easyshop-network \
+  --network ShopKaro-network \
   --env-file .env.local \
-  easyshop-migration
+  ShopKaro-migration
 ```
 
-5. Start the EasyShop application:
+5. Start the ShopKaro application:
 ```bash
 docker run -d \
-  --name easyshop \
-  --network easyshop-network \
+  --name ShopKaro \
+  --network ShopKaro-network \
   -p 3000:3000 \
   --env-file .env.local \
-  easyshop:latest
+  ShopKaro:latest
 ```
 
 ### Accessing the Application
 
 1. Open your web browser
 2. Visit [http://localhost:3000](http://localhost:3000)
-3. You should see the EasyShop homepage!
+3. You should see the ShopKaro homepage!
 
 ### Useful Docker Commands
 
@@ -219,29 +219,29 @@ docker run -d \
 docker ps
 
 # View container logs
-docker logs easyshop
-docker logs easyshop-mongodb
+docker logs ShopKaro
+docker logs ShopKaro-mongodb
 
 # Stop containers
-docker stop easyshop easyshop-mongodb
+docker stop ShopKaro ShopKaro-mongodb
 
 # Remove containers
-docker rm easyshop easyshop-mongodb
+docker rm ShopKaro ShopKaro-mongodb
 
 # Remove network
-docker network rm easyshop-network
+docker network rm ShopKaro-network
 ```
 
 ### Troubleshooting
 
 1. If you can't connect to MongoDB:
    - Make sure the MongoDB container is running: `docker ps`
-   - Check MongoDB logs: `docker logs easyshop-mongodb`
-   - Verify network connection: `docker network inspect easyshop-network`
+   - Check MongoDB logs: `docker logs ShopKaro-mongodb`
+   - Verify network connection: `docker network inspect ShopKaro-network`
 
 2. If the application isn't accessible:
    - Check if the container is running: `docker ps`
-   - View application logs: `docker logs easyshop`
+   - View application logs: `docker logs ShopKaro`
    - Make sure port 3000 isn't being used by another application
 
 3. If migration fails:
@@ -284,7 +284,7 @@ Error: MongoDB connection failed
 ## 📦 Project Structure
 
 ```
-easyshop/
+ShopKaro/
 ├── src/
 │   ├── app/              # Next.js App Router pages
 │   ├── components/       # Reusable React components
@@ -330,7 +330,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For questions or feedback, please open an issue or contact the maintainers:
 
 - Maintainer - [@Md. Afzal hassan Ehsani](https://github.com/iemafzalhassan)
-- Project Link: [https://github.com/iemafzalhassan/easyshop](https://github.com/iemafzalhassan/easyshop)
+- Project Link: [https://github.com/iemafzalhassan/ShopKaro](https://github.com/iemafzalhassan/ShopKaro)
 
 ---
 

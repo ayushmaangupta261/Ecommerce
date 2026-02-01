@@ -166,7 +166,7 @@ const Navbar = () => {
               asChild
             >
               <a
-                href="https://github.com/iemafzalhassan/EasyShop"
+                href="https://github.com/iemafzalhassan/ShopKaro"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"

@@ -1,6 +1,6 @@
 # Jenkins CI/CD Pipeline Setup Guide
 
-This guide provides step-by-step instructions for setting up a Jenkins CI/CD pipeline for the EasyShop application, including GitHub webhook configuration and shared library integration.
+This guide provides step-by-step instructions for setting up a Jenkins CI/CD pipeline for the ShopKaro application, including GitHub webhook configuration and shared library integration.
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
@@ -123,7 +123,7 @@ Install these plugins via "Manage Jenkins" > "Manage Plugins" > "Available":
 ### 1. Create Pipeline
 
 1. Click "New Item"
-2. Enter name: "easyshop-pipeline"
+2. Enter name: "ShopKaro-pipeline"
 3. Select "Pipeline"
 4. Configure:
    - GitHub project URL
@@ -135,14 +135,14 @@ Install these plugins via "Manage Jenkins" > "Manage Plugins" > "Available":
 
 ### 2. Shared Library Integration
 
-Our pipeline uses a shared library from: [EasyShop Jenkins Shared Library](https://github.com/iemafzalhassan/EasyShop-jenkins-shared-lib)
+Our pipeline uses a shared library from: [ShopKaro Jenkins Shared Library](https://github.com/iemafzalhassan/ShopKaro-jenkins-shared-lib)
 
 1. Go to "Manage Jenkins" > "Configure System"
 2. Under "Global Pipeline Libraries":
-   - Name: easyshop-shared-lib
+   - Name: ShopKaro-shared-lib
    - Default version: main
    - Modern SCM: GitHub
-   - Repository URL: https://github.com/iemafzalhassan/EasyShop-jenkins-shared-lib.git
+   - Repository URL: https://github.com/iemafzalhassan/ShopKaro-jenkins-shared-lib.git
 
 ### 3. Pipeline Stages
 
@@ -166,4 +166,4 @@ Important log locations:
 - [Jenkins Documentation](https://www.jenkins.io/doc/)
 - [Docker Documentation](https://docs.docker.com/)
 - [GitHub Webhooks Guide](https://docs.github.com/en/webhooks)
-- [EasyShop Shared Library](https://github.com/iemafzalhassan/EasyShop-jenkins-shared-lib)
+- [ShopKaro Shared Library](https://github.com/iemafzalhassan/ShopKaro-jenkins-shared-lib)

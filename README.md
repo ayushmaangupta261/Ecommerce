@@ -1,4 +1,4 @@
-# 🛍️ EasyShop - Modern E-commerce Platform
+# 🛍️ ShopKaro - Modern E-commerce Platform
 
 [![Next.js](https://img.shields.io/badge/Next.js-14.1.0-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
@@ -6,7 +6,7 @@
 [![Redux](https://img.shields.io/badge/Redux-2.2.1-purple?style=flat-square&logo=redux)](https://redux.js.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-EasyShop is a modern, full-stack e-commerce platform built with Next.js 14, TypeScript, and MongoDB. It features a beautiful UI with Tailwind CSS, secure authentication, real-time cart updates, and a seamless shopping experience.
+ShopKaro is a modern, full-stack e-commerce platform built with Next.js 14, TypeScript, and MongoDB. It features a beautiful UI with Tailwind CSS, secure authentication, real-time cart updates, and a seamless shopping experience.
 
 ## ✨ Features
 
@@ -22,7 +22,7 @@ EasyShop is a modern, full-stack e-commerce platform built with Next.js 14, Type
 
 ## 🏗️ Architecture
 
-EasyShop follows a three-tier architecture pattern:
+ShopKaro follows a three-tier architecture pattern:
 
 ### 1. Presentation Tier (Frontend)
 - Next.js React Components
@@ -97,7 +97,7 @@ sudo ./aws/install
 1. **Clone the Repository:**
 First, clone this repo to your local machine:<br/>
 ```bash
-git clone https://github.com/LondheShubham153/tws-e-commerce-app.git
+git https://github.com/ayushmaangupta261/Ecommerce.git
 cd terraform
 ```
 2. **Generate SSH Key Pair:**
@@ -218,12 +218,12 @@ sudo systemctl status jenkins
 	
 #### 7. Setup Pipeline<br/>
 > - Create New Pipeline Job<br/>
->   - **Name:** EasyShop<br/>
+>   - **Name:** ShopKaro<br/>
 >   - **Type:** Pipeline<br/>
 > Press `Okey`<br/>
 
 > > In **General**<br/>
-> > - **Description:** EasyShop<br/>
+> > - **Description:** ShopKaro<br/>
 > > - **Check the box:** `GitHub project`<br/>
 > > - **GitHub Repo URL:** `https://github.com/<your user-name/tws-e-commerce-app`<br/>
 >
@@ -235,7 +235,7 @@ sudo systemctl status jenkins
 > > - **SCM:** `Git`<br/>
 > > - **Repository URL:** `https://github.com/<your user-name/tws-e-commerce-app`<br/>
 > > - **Credentials:** `github-credentials`<br/>
-> > - **Branch:** master<br/>
+> > - **Branch:** main<br/>
 > > - **Script Path:** `Jenkinsfile`<br/>
 
 #### **Fork Required Repos**<br/>
@@ -421,13 +421,13 @@ kubectl get svc nginx-ingress-ingress-nginx-controller -n ingress-nginx -o jsonp
 > > apiVersion: v1
 > > kind: ConfigMap
 > > metadata:
-> >   name: easyshop-config
-> >   namespace: easyshop
+> >   name: ShopKaro-config
+> >   namespace: ShopKaro
 > > data:
-> >   MONGODB_URI: "mongodb://mongodb-service:27017/easyshop"
+> >   MONGODB_URI: "mongodb://mongodb-service:27017/ShopKaro"
 > >   NODE_ENV: "production"
-> >   NEXT_PUBLIC_API_URL: "https://easyshop.letsdeployit.com/api"
-> >   NEXTAUTH_URL: "https://easyshop.letsdeployit.com/"
+> >   NEXT_PUBLIC_API_URL: "https://ShopKaro.letsdeployit.com/api"
+> >   NEXTAUTH_URL: "https://ShopKaro.letsdeployit.com/"
 > >   NEXTAUTH_SECRET: "HmaFjYZ2jbUK7Ef+wZrBiJei4ZNGBAJ5IdiOGAyQegw="
 > >   JWT_SECRET: "e5e425764a34a2117ec2028bd53d6f1388e7b90aeae9fa7735f2469ea3a6cc8c"
 > > ```
@@ -438,8 +438,8 @@ kubectl get svc nginx-ingress-ingress-nginx-controller -n ingress-nginx -o jsonp
 > > apiVersion: networking.k8s.io/v1
 > > kind: Ingress
 > > metadata:
-> >   name: easyshop-ingress
-> >   namespace: easyshop
+> >   name: ShopKaro-ingress
+> >   namespace: ShopKaro
 > >   annotations:
 > >     nginx.ingress.kubernetes.io/proxy-body-size: "50m"
 > >     kubernetes.io/ingress.class: "nginx"
@@ -448,17 +448,17 @@ kubectl get svc nginx-ingress-ingress-nginx-controller -n ingress-nginx -o jsonp
 > > spec:
 > >   tls:
 > >   - hosts:
-> >     - easyshop.letsdeployit.com
-> >     secretName: easyshop-tls
+> >     - ShopKaro.letsdeployit.com
+> >     secretName: ShopKaro-tls
 > >   rules:
-> >   - host: easyshop.letsdeployit.com
+> >   - host: ShopKaro.letsdeployit.com
 > >     http:
 > >       paths:
 > >       - path: /
 > >         pathType: Prefix
 > >         backend:
 > >           service:
-> >             name: easyshop-service
+> >             name: ShopKaro-service
 > >             port:
 > >               number: 80
 > > ```
@@ -473,11 +473,11 @@ kubectl get svc nginx-ingress-ingress-nginx-controller -n ingress-nginx -o jsonp
 > #### 4. **Commands to check the status:**
 >
 >> ```bash
->> kubectl get certificate -n easyshop
+>> kubectl get certificate -n ShopKaro
 >> ```
 
 >> ```bash
->> kubectl describe certificate easyshop-tls -n easyshop
+>> kubectl describe certificate ShopKaro-tls -n ShopKaro
 >> ```
 >
 >> ```bash
@@ -485,14 +485,14 @@ kubectl get svc nginx-ingress-ingress-nginx-controller -n ingress-nginx -o jsonp
 >> ```
 >
 >> ```bash
->> kubectl get challenges -n easyshop
+>> kubectl get challenges -n ShopKaro
 >> ```
 >
 >> ```bash
->> kubectl describe challenges -n easyshop
+>> kubectl describe challenges -n ShopKaro
 >> ```
 
 ## **Congratulations!** <br/>
-![EasyShop Website Screenshot](./public/Deployed.png)
+![ShopKaro Website Screenshot](./public/Deployed.png)
 
 ### Your project is now deployed.

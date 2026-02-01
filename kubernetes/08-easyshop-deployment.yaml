@@ -1,44 +1,44 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: easyshop
-  namespace: easyshop
+  name: shopKaro
+  namespace: shopKaro
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: easyshop
+      app: shopKaro
   template:
     metadata:
       labels:
-        app: easyshop
+        app: shopKaro
     spec:
       containers:
-        - name: easyshop
-          image: trainwithshubham/easyshop-app:1
+        - name: shopKaro
+          image: ayushmaan261/shopKaro-app:1
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
           envFrom:
             - configMapRef:
-                name: easyshop-config
+                name: shopKaro-config
             - secretRef:
-                name: easyshop-secrets
+                name: shopKaro-secrets
           env:
             - name: NEXTAUTH_URL
               valueFrom:
                 configMapKeyRef:
-                  name: easyshop-config
+                  name: shopKaro-config
                   key: NEXTAUTH_URL
             - name: NEXTAUTH_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: easyshop-secrets
+                  name: shopKaro-secrets
                   key: NEXTAUTH_SECRET
             - name: JWT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: easyshop-secrets
+                  name: shopKaro-secrets
                   key: JWT_SECRET
           resources:
             requests:

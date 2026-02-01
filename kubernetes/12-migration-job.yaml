@@ -2,15 +2,15 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: db-migration
-  namespace: easyshop
+  namespace: ShopshopKaroKaro
 spec:
   template:
     spec:
       containers:
       - name: migration
-        image: trainwithshubham/easyshop-migration:1
+        image: ayushmaan261/shopKaro-migration:1
         imagePullPolicy: Always
         env:
         - name: MONGODB_URI
-          value: "mongodb://mongodb-service:27017/easyshop"
+          value: "mongodb://mongodb-service:27017/shopKaro"
       restartPolicy: OnFailure

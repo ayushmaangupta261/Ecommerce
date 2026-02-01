@@ -1,6 +1,6 @@
 const config = {
   apps: [{
-    name: 'easyshop-frontend',
+    name: 'ShopKaro-frontend',
     script: './server.js',
     instances: 'max',
     exec_mode: 'cluster',

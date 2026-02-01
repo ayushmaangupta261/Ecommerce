@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: easyshop-service
-  namespace: easyshop
+  name: shopKaro-service
+  namespace: shopKaro
 spec:
   type: NodePort
   ports:
@@ -10,4 +10,4 @@ spec:
       targetPort: 3000
       nodePort: 30000
   selector:
-    app: easyshop
+    app: shopKaro
