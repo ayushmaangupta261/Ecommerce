@@ -13,7 +13,7 @@ spec:
     - shopKaro.letsdeployit.com
     secretName: shopKaro-tls-secret  # Cert-Manager will manage this
   rules:
-  - host: shopKaro.letsdeployit.com
+  - host: shopkaro.letsdeployit.com
     http:
       paths:
       - path: /
