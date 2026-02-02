@@ -34,3 +34,4 @@ spec:
           env:
             - name: MONGODB_URI
               value: "mongodb://mongodb-service:27017/shopkaro"
+
