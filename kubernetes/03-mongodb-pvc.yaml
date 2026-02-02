@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mongodb-pvc
-  namespace: shopKaro
+  namespace: shopkaro   
 spec:
   accessModes:
     - ReadWriteOnce

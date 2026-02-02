@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: shopKaro
+  name: shopkaro   
   labels:
-    name: shopKaro
+    name: shopkaro   
     environment: production

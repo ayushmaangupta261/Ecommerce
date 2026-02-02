@@ -2,7 +2,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: shopKaro-hpa
-  namespace: shopKaro
+  namespace: shopkaro   
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
