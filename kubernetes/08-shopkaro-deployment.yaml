@@ -16,7 +16,7 @@ spec:
       containers:
         - name: shopkaro
 
-          image: ayushmaan261/shopkaro-app:19
+          image: ayushmaan261/shopkaro-app:20
 
           imagePullPolicy: Always
           ports:
