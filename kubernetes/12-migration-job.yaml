@@ -8,9 +8,9 @@ spec:
     spec:
       containers:
       - name: migration
-        image: ayushmaan261/shopKaro-migration:1
+        image: ayushmaan261/shopkaro-migration:1
         imagePullPolicy: Always
         env:
         - name: MONGODB_URI
-          value: "mongodb://mongodb-service:27017/shopKaro"
+          value: "mongodb://mongodb-service:27017/shopkaro"
       restartPolicy: OnFailure

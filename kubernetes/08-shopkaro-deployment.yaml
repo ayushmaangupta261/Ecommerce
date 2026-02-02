@@ -1,44 +1,44 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: shopKaro
+  name: shopkaro
   namespace: shopkaro      
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: shopKaro
+      app: shopkaro
   template:
     metadata:
       labels:
-        app: shopKaro
+        app: shopkaro
     spec:
       containers:
-        - name: shopKaro
-          image: ayushmaan261/shopKaro-app:1
+        - name: shopkaro
+          image: ayushmaan261/shopkaro-app:1
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
           envFrom:
             - configMapRef:
-                name: shopKaro-config
+                name: shopkaro-config
             - secretRef:
-                name: shopKaro-secrets
+                name: shopkaro-secrets
           env:
             - name: NEXTAUTH_URL
               valueFrom:
                 configMapKeyRef:
-                  name: shopKaro-config
+                  name: shopkaro-config
                   key: NEXTAUTH_URL
             - name: NEXTAUTH_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: shopKaro-secrets
+                  name: shopkaro-secrets
                   key: NEXTAUTH_SECRET
             - name: JWT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: shopKaro-secrets
+                  name: shopkaro-secrets
                   key: JWT_SECRET
           resources:
             requests:
