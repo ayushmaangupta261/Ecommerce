@@ -1,16 +1,36 @@
+# apiVersion: batch/v1
+# kind: Job
+# metadata:
+#   name: db-migration
+#   namespace: shopkaro   
+# spec:
+#   template:
+#     spec:
+#       containers:
+#       - name: migration
+#         image: ayushmaan261/shopkaro-migration:1
+#         imagePullPolicy: Always
+#         env:
+#         - name: MONGODB_URI
+#           value: "mongodb://mongodb-service:27017/shopkaro"
+#       restartPolicy: OnFailure
+
+
 apiVersion: batch/v1
 kind: Job
 metadata:
   name: db-migration
-  namespace: shopkaro   
+  namespace: shopkaro
+  annotations:
+    argocd.argoproj.io/sync-options: Replace=true
 spec:
   template:
     spec:
-      containers:
-      - name: migration
-        image: ayushmaan261/shopkaro-migration:1
-        imagePullPolicy: Always
-        env:
-        - name: MONGODB_URI
-          value: "mongodb://mongodb-service:27017/shopkaro"
       restartPolicy: OnFailure
+      containers:
+        - name: migration
+          image: ayushmaan261/shopkaro-migration:1
+          imagePullPolicy: Always
+          env:
+            - name: MONGODB_URI
+              value: "mongodb://mongodb-service:27017/shopkaro"
