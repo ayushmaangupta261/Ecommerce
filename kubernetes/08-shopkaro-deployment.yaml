@@ -16,6 +16,7 @@ spec:
       containers:
         - name: shopkaro
 
+
           image: ayushmaan261/shopkaro:19
 
           imagePullPolicy: Always
